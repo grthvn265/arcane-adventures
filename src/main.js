@@ -1,6 +1,7 @@
 import * as THREE from 'three';
-import { Game } from 'game'; // This matches the 'game' key in the importmap
+import { Game } from 'game'; 
 
 const renderDiv = document.getElementById('renderDiv');
 const game = new Game(renderDiv);
+
 game.start();
