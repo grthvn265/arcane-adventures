@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { AudioLoader, Audio } from 'three'; // Added Audio and AudioLoader
 const ENEMY_MODEL_URL = 'https://play.rosebud.ai/assets/Skeleton_Warrior.glb?ymv2';
 const ENEMY_ATTACK_SOUND_URL = 'https://play.rosebud.ai/assets/03_Claw_03.wav?UIzl';

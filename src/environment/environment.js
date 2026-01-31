@@ -1,6 +1,6 @@
 import * as THREE from 'three';
-import { ColladaLoader } from 'three/examples/jsm/loaders/ColladaLoader.js'; // Import ColladaLoader
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'; // Import GLTFLoader
+import { ColladaLoader } from 'three/examples/jsm/loaders/ColladaLoader'; // Import ColladaLoader
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'; // Import GLTFLoader
 const GROUND_SIZE = 100; // Increased world size
 const NUM_TREES = 90; // Increased tree count to match larger world
 const TREE_MODEL_URLS = [

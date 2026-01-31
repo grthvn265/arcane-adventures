@@ -7,20 +7,13 @@ import { UIManager } from 'UIManager';
 import { MenuEffects } from 'MenuEffects';
 import { Enemy } from 'Enemy'; // Import the Enemy class
 const NUM_SKELETONS_OBJECTIVE = 5; // Number of enemies for the objective
-// Postprocessing imports
-import { EffectComposer, RenderPass } from 'postprocessing'; // Simplified imports
-// Fog is removed - Constants no longer needed
-// const FOG_COLOR = 0x6e7f9e;
-// const FOG_NEAR = 10;
-// const FOG_FAR = 40;
+import { EffectComposer, RenderPass } from 'postprocessing';
 const BACKGROUND_MUSIC_URL = 'https://play.rosebud.ai/assets/Clement Panchout_ Village_ 2002.mp3?McdG';
 const GAME_PLAY_MUSIC_URL = 'https://play.rosebud.ai/assets/Clement Panchout _ LJ_Tel_DnB.wav?8HYT';
-// Placeholder URLs - Replace with actual sound asset URLs
 const JUMP_SOUND_URL = 'https://play.rosebud.ai/assets/zapsplat_multimedia_game_sound_classic_jump_002_40395.mp3'; // Replace with actual URL
 const ATTACK_SOUND_URL = 'https://play.rosebud.ai/assets/zapsplat_warfare_sword_swing_fast_whoosh_blade_001_110489.mp3'; // This was the old player attack sound, will be updated or removed based on usage
-const PLAYER_ATTACK_SOUND_URL = 'https://play.rosebud.ai/assets/22_Slash_04.wav?Ed4T'; // New player attack sound
-const UI_CLICK_SOUND_URL = 'https://play.rosebud.ai/assets/mixkit-select-click-1109.wav?k0k0'; // Updated with new asset
-// Enum for game states
+const PLAYER_ATTACK_SOUND_URL = 'https://play.rosebud.ai/assets/22_Slash_04.wav?Ed4T'; 
+const UI_CLICK_SOUND_URL = 'https://play.rosebud.ai/assets/mixkit-select-click-1109.wav?k0k0'; 
 const GameState = {
     MENU: 'MENU',
     PLAYING: 'PLAYING',

@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { Inventory } from 'Inventory'; // Import the Inventory class
 // Adjusted constants for Knight model (approximate)
 const PLAYER_HEIGHT = 1.8; // Keep for camera target offset logic
@@ -15,6 +15,7 @@ const ROTATION_SPEED = 10.0;
 const BASE_CAMERA_ROTATION_SPEED = 0.005;
 const CAMERA_PITCH_MIN = -Math.PI / 3;
 const CAMERA_PITCH_MAX = Math.PI / 2.5;
+
 export class Player {
     constructor(game, scene, camera) { // Add game as the first argument
         this.game = game; // Store the game instance
@@ -27,10 +28,10 @@ export class Player {
         this.attackManaCost = 5; // Mana cost per attack
         this.attackDamage = 15; // Amount of damage player's attack deals
         this.attackRange = 2.0; // How close player needs to be to hit (adjust to match animation)
-this.attackAngle = Math.PI / 2.5; // Cone of attack in front of player (90 degrees total, 45 each side)
-this.defenseDamageReduction = 0.5; // 50% damage reduction while defending
-this.mesh = null; // Initialize mesh as null, will be loaded async
-this.velocity = new THREE.Vector3(0, 0, 0);
+        this.attackAngle = Math.PI / 2.5; // Cone of attack in front of player (90 degrees total, 45 each side)
+        this.defenseDamageReduction = 0.5; // 50% damage reduction while defending
+        this.mesh = null; // Initialize mesh as null, will be loaded async
+        this.velocity = new THREE.Vector3(0, 0, 0);
         this.onGround = false;
         this.moveDirection = new THREE.Vector3();
         this.targetCameraPosition = new THREE.Vector3();
