@@ -1,0 +1,27 @@
+# Dependency Directories
+node_modules/
+jspm_packages/
+.pnp
+.pnp.js
+
+# Build Outputs
+dist/
+build/
+*.log
+
+# Editor & OS Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Environment & Secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Rosebud/AI Temporary Files
+.rosebud/
+*.tmp
