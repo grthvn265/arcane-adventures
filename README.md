@@ -21,7 +21,7 @@ The project is organized into modular directories:
   * Attack SFX: Rosebud.AI Assets.
   * UI SFX: Mixkit.
 
-## 🚀 Development
+## 🚀 How to Run?
 To run the project locally:
 1. Ensure all files are placed in the directory structure above.
 2. Use a local server (like VS Code Live Server) to open `index.html`.
