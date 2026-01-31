@@ -36,8 +36,6 @@ export class Enemy {
         this.radius = 0.5; // Approximate radius for collision
         this.attackSoundBuffer = null;
         this.attackSound = null;
-        // this.deathRemovalTimer = null; // No longer used, removal handled by update loop
-        // this.deathLingerDuration = 1.5; // No longer used directly by a timer
         this.deathAnimationCompleted = false; // Tracks if death animation has finished
         this.deathSmokeEffect = null; // Stores the smoke effect instance for this enemy's death
         this._loadModel();
@@ -206,7 +204,6 @@ export class Enemy {
         }
         // 2. Check for and handle despawn condition if enemy is dead and mesh exists
         if (!this.isAlive && this.mesh) {
-            // Death animation is considered finished if flag is true, or if there was no death animation to begin with.
             const animFinished = this.deathAnimationCompleted;
             const smokeFinished = !this.deathSmokeEffect || this.deathSmokeEffect.isFinished;
             if (animFinished && smokeFinished) {
@@ -214,12 +211,6 @@ export class Enemy {
                 if (this.scene) {
                     this.scene.remove(this.mesh);
                 }
-                // TODO: Consider disposing geometry/materials here if they are unique and not shared.
-                // For example:
-                // if (this.mesh.geometry) this.mesh.geometry.dispose();
-                // this.mesh.traverse(child => {
-                //   if (child.isMesh && child.material) { /* dispose materials */ }
-                // });
                 this.mesh = null; // Nullify reference to stop further processing for this instance.
             }
         }
@@ -318,23 +309,7 @@ export class Enemy {
                 this.velocity.z = 0;
             }
         }
-        // Apply gravity
-// Corrected previous GRAVITY constant name (was missing from provided snippet)
-// Assuming GRAVITY is defined elsewhere, e.g., const GRAVITY = -18.0;
-// This edit block is just to ensure the context for the next one is correct.
-// No actual code change in this block for this step if GRAVITY is globally accessible or defined in class.
-// For this specific step, we'll assume GRAVITY is implicitly available.
-// The actual change is about the AI logic and animation handling.
-// This is a placeholder to ensure the diff tool has a line to match.
-// If GRAVITY is a class member (e.g. this.GRAVITY), no change needed here.
-// If it was a local const, it might need to be this.GRAVITY or passed.
-// For now, let's assume it's fine.
-// ... (lines 184-189 from the previous response)
-// this.velocity.y += GRAVITY * deltaTime;
-// ...
-// This block is primarily to adjust line numbers for the following important changes.
-// The key modifications are in the AI decision-making and attack execution logic.
-// No changes to gravity application itself in this step.
+        
         const GRAVITY = -18.0; // Define GRAVITY if not already accessible
         if (!this.onGround) {
             this.velocity.y += GRAVITY * deltaTime; 
@@ -671,4 +646,5 @@ class SpawnSmokeEffect {
             // console.log("Smoke effect finished and removed.");
         }
     }
+
 }
