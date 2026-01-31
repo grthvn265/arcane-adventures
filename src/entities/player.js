@@ -1,7 +1,6 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { Inventory } from 'Inventory'; // Import the Inventory class
-// Adjusted constants for Knight model (approximate)
 const PLAYER_HEIGHT = 1.8; // Keep for camera target offset logic
 const PLAYER_RADIUS = 0.4; // Keep for simple collision logic for now
 const MOVEMENT_SPEED = 5.0;
@@ -10,8 +9,7 @@ const GRAVITY = -18.0;
 const CAMERA_DISTANCE = 6.0; // Slightly further back
 const CAMERA_HEIGHT = 1.8; // Slightly lower target height
 const CAMERA_LAG = 0.1;
-const ROTATION_SPEED = 10.0;
-// Default camera rotation speed, will be multiplied by sensitivity
+const ROTATION_SPEED = 10.0; // Default camera rotation speed, will be multiplied by sensitivity
 const BASE_CAMERA_ROTATION_SPEED = 0.005;
 const CAMERA_PITCH_MIN = -Math.PI / 3;
 const CAMERA_PITCH_MAX = Math.PI / 2.5;
@@ -51,11 +49,11 @@ export class Player {
         this.isDefending = false; // Track defense state
         this.attackCooldown = 0.8; // Seconds between attacks
         this.lastAttackTime = -Infinity; // Time of the last attack start
-this.isAlive = true; // Player starts alive
-this.inventory = new Inventory(12); // Player has a 12-slot inventory
-this._loadModel();
-this._updateCameraRotation(0, 0); // Initial rotation setup
-    }
+		this.isAlive = true; // Player starts alive
+		this.inventory = new Inventory(12); // Player has a 12-slot inventory
+		this._loadModel();
+		this._updateCameraRotation(0, 0); // Initial rotation setup
+	}
     _loadModel() {
         const loader = new GLTFLoader();
         const modelUrl = 'https://play.rosebud.ai/assets/Knight.glb?QjIz';
@@ -747,3 +745,4 @@ this.health = Math.max(0, this.health); // Ensure health doesn't go below 0
         }
     }
 }
+
