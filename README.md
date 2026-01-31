@@ -5,9 +5,9 @@
 ## 📂 File Organization
 The project is organized into modular directories:
 * **src/core**: Contains the main engine and scene initialization.
-* **src/entities**: Contains logic for the Player and Enemy AI.
-* **src/world**: Handles procedural generation, sky, and particles.
-* **src/systems**: Manages UI, input handling, and inventory systems.
+* **src/entities**: Contains logic for the Player, Enemy, and Inventory systems.
+* **src/environment**: Handles procedural generation, sky, and particles.
+* **src/ui**: Manages UI and Menu Effects.
 
 ## 📜 Credits
 ### 3D Models
