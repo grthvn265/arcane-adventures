@@ -12,7 +12,7 @@ The project is organized into modular directories:
 ## 📜 Credits
 ### 3D Models
 * **Character Models:** [Kaykit](https://kaylousberg.itch.io/) (Knight and Enemy models).
-* **Tree Models:** Source Unknown.
+* **Tree Models:** All rights go to the owners.
 * **Environment:** Grass and terrain assets provided via Rosebud.AI.
 
 ### Audio

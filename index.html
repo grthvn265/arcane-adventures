@@ -24,29 +24,33 @@
             display: block; 
         }
     </style>
-    <script type="importmap">
+<script type="importmap">
     {
-        "imports": {
+    "imports": {
             "three": "https://esm.sh/three@0.161.0?dev",
             "three/": "https://esm.sh/three@0.161.0&dev/",
-            "Enemy": "./Enemy.js",
-            "game": "./game.js",
-            "player": "./player.js",
-            "inputHandler": "./inputHandler.js",
-            "Inventory": "./Inventory.js",
-            "environment": "./environment.js",
-            "sceneSetup": "./sceneSetup.js",
-            "Sky": "./Sky.js",
-            "UIManager": "./UIManager.js",
-            "MenuEffects": "./MenuEffects.js",
-            "particles": "./particles.js",
-            "postprocessing": "https://esm.sh/postprocessing@6.37.1?dev&external=three"
+            "postprocessing": "https://esm.sh/postprocessing@6.37.1?dev&external=three",
+            
+            "game": "./src/core/game.js",
+            "inputHandler": "./src/core/inputHandler.js",
+            "sceneSetup": "./src/core/sceneSetup.js",
+            
+            "player": "./src/entities/player.js",
+            "Enemy": "./src/entities/Enemy.js",
+            "Inventory": "./src/entities/Inventory.js",
+            
+            "environment": "./src/environment/environment.js",
+            "Sky": "./src/environment/Sky.js",
+            "particles": "./src/environment/particles.js",
+            
+            "UIManager": "./src/ui/UIManager.js",
+            "MenuEffects": "./src/ui/MenuEffects.js"
         }
     }
-    </script>
+</script>
 </head>
 <body>
     <div id="renderDiv"></div>
-    <script type="module" src="./main.js"></script>
+    <script type="module" src="./src/main.js"></script>
 </body>
 </html>
