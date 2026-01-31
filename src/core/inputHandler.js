@@ -1,7 +1,6 @@
-import * as THREE from 'three'; // Needed for Vector2 potentially later
+import * as THREE from 'three'; 
 export class InputHandler {
     constructor() { // REMOVED targetElement parameter
-        // this.targetElement = targetElement; // REMOVED canvas storage
         this.keys = {};
         this.mouseDeltaX = 0;
         this.mouseDeltaY = 0;
@@ -121,4 +120,5 @@ export class InputHandler {
         this.mouseDeltaX = 0;
         this.mouseDeltaY = 0;
     }
+
 }
