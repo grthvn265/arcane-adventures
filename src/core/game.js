@@ -5,13 +5,13 @@ import { InputHandler } from 'inputHandler';
 import { Environment } from 'environment';
 import { UIManager } from 'UIManager';
 import { MenuEffects } from 'MenuEffects';
-import { Enemy } from 'Enemy'; // Import the Enemy class
-const NUM_SKELETONS_OBJECTIVE = 5; // Number of enemies for the objective
+import { Enemy } from 'Enemy'; 
+const NUM_SKELETONS_OBJECTIVE = 5; 
 import { EffectComposer, RenderPass } from 'postprocessing';
 const BACKGROUND_MUSIC_URL = 'https://play.rosebud.ai/assets/Clement Panchout_ Village_ 2002.mp3?McdG';
 const GAME_PLAY_MUSIC_URL = 'https://play.rosebud.ai/assets/Clement Panchout _ LJ_Tel_DnB.wav?8HYT';
-const JUMP_SOUND_URL = 'https://play.rosebud.ai/assets/zapsplat_multimedia_game_sound_classic_jump_002_40395.mp3'; // Replace with actual URL
-const ATTACK_SOUND_URL = 'https://play.rosebud.ai/assets/zapsplat_warfare_sword_swing_fast_whoosh_blade_001_110489.mp3'; // This was the old player attack sound, will be updated or removed based on usage
+const JUMP_SOUND_URL = 'https://play.rosebud.ai/assets/zapsplat_multimedia_game_sound_classic_jump_002_40395.mp3'; 
+const ATTACK_SOUND_URL = 'https://play.rosebud.ai/assets/zapsplat_warfare_sword_swing_fast_whoosh_blade_001_110489.mp3'; 
 const PLAYER_ATTACK_SOUND_URL = 'https://play.rosebud.ai/assets/22_Slash_04.wav?Ed4T'; 
 const UI_CLICK_SOUND_URL = 'https://play.rosebud.ai/assets/mixkit-select-click-1109.wav?k0k0'; 
 const GameState = {
@@ -27,20 +27,16 @@ export class Game {
         // Call setupScene early and use its returned value.
         // This ensures that any modifications or a new scene instance returned by setupScene
         // becomes the authoritative `this.scene` before it's used by RenderPass or other components.
-        
         this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         this.renderer = new THREE.WebGLRenderer({ antialias: true });
         this.clock = new THREE.Clock();
         this.composer = null; // Added for post-processing
         this.mainDirectionalLight = null; // To store the main light for shadow adjustments
-        
-        // Initialize scene and main light from sceneSetup.js
-        // sceneSetup.js now returns an object { scene, directionalLight }
-        const sceneSetupResult = setupScene(this.camera); // Pass camera as per sceneSetup.js signature
+        const sceneSetupResult = setupScene(this.camera); 
         this.scene = sceneSetupResult.scene;
         this.mainDirectionalLight = sceneSetupResult.directionalLight;
         
-        // References to specific effects and passes removed
+       
         this.player = null;
         this.inputHandler = null;
         this.environment = null;
@@ -48,18 +44,18 @@ export class Game {
         this.menuEffects = null;
         this.gameState = GameState.MENU; // Start in menu state
         this.audioListener = null; // For 3D audio
-            this.backgroundMusic = null; // To hold the loaded background music
-            this.gamePlayMusic = null; // To hold the loaded main game music
-            this.enemies = []; // Array to hold enemy instances
-            this.jumpSound = null; // To hold jump sound effect
-            this.attackSound = null; // To hold generic attack sound effect (might be for enemies or old player)
-            this.playerAttackSound = null; // To hold the new player-specific attack sound
-            this.uiClickSound = null; // To hold UI click sound effect
-            this.audioLoader = new THREE.AudioLoader(); // Reusable loader
-            this.isAudioContextResumed = false; // Track if user interaction resumed context
-            this.isMusicLoaded = false; // Track menu music loading status
-            this.isGameMusicLoaded = false; // Track game music loading status
-            this.areSoundsLoaded = { jump: false, attack: false, playerAttack: false, uiClick: false }; // Track SFX loading
+        this.backgroundMusic = null; // To hold the loaded background music
+        this.gamePlayMusic = null; // To hold the loaded main game music
+        this.enemies = []; // Array to hold enemy instances
+        this.jumpSound = null; // To hold jump sound effect
+        this.attackSound = null; // To hold generic attack sound effect (might be for enemies or old player)
+        this.playerAttackSound = null; // To hold the new player-specific attack sound
+        this.uiClickSound = null; // To hold UI click sound effect
+        this.audioLoader = new THREE.AudioLoader(); // Reusable loader
+        this.isAudioContextResumed = false; // Track if user interaction resumed context
+        this.isMusicLoaded = false; // Track menu music loading status
+        this.isGameMusicLoaded = false; // Track game music loading status
+        this.areSoundsLoaded = { jump: false, attack: false, playerAttack: false, uiClick: false }; // Track SFX loading
         this._escapePressedLastFrame = false; // For detecting single escape key press
         this._iPressedLastFrame = false; // For detecting single 'I' key press for inventory
         this.objectiveMessage = ""; // Current objective message
@@ -69,7 +65,6 @@ export class Game {
         // Game settings
         this.settings = {
             cameraSensitivity: 1.0, // Default sensitivity
-            // bloomEnabled and vignetteEnabled removed
         };
         this._setupRenderer();
         this._setupAudio(); // Setup audio listener and load music
@@ -210,21 +205,15 @@ export class Game {
         this.playMenuMusicIfReady();
         this.stopGameMusic(); // Ensure game music is stopped when entering menu
     }
-    // Renamed from _setupScene to _configureScene as primary scene setup is now from sceneSetup.js in constructor
     _configureScene() { 
-        // Fog and background are now handled by sceneSetup.js (via createSky and direct fog setting)
-        // The main scene (this.scene) is already established from sceneSetupResult in the constructor.
         this.environment = new Environment(this.scene);
-        this.scene.environment = this.environment; // Make environment accessible for Enemy ground check
+        this.scene.environment = this.environment;
     }
     _setupMenuEffects() {
         this.menuEffects = new MenuEffects(this.scene);
     }
     _setupPlayer() {
-        // Pass 'this' (the game instance) to the Player so it can call playSoundEffect
         this.player = new Player(this, this.scene, this.camera);
-        // Player handles its own initial positioning async
-        // No need to set position here anymore
     }
     _setupInput() {
         this.inputHandler = new InputHandler(); // REMOVED passing canvas
@@ -936,4 +925,5 @@ applyShadowQuality(quality) {
         this.renderer.render(this.scene, this.camera);
         // this.composer.render(deltaTime); // If using postprocessing
     }
+
 }
